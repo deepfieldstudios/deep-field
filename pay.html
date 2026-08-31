@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Client billing — Deep Field</title>
+<meta name="description" content="Start a monthly care plan or settle an invoice. Payments handled securely by Stripe.">
+<link rel="canonical" href="https://deepfieldstudios.com/pay.html">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0C1019">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap inner">
+    <a class="wordmark" href="/" aria-label="Deep Field — home">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="120" height="120" rx="16" fill="#0C1019"/>
+        <rect x="30" y="26" width="60" height="60" rx="3" fill="none" stroke="#F6F4EF" stroke-width="2" opacity="0.22"/>
+        <g fill="#F6F4EF"><circle cx="46" cy="40" r="3"/><circle cx="78" cy="36" r="2.2" opacity=".6"/><circle cx="46" cy="74" r="2.2" opacity=".6"/></g>
+        <circle cx="70" cy="62" r="6" fill="#15BFAE"/>
+      </svg>
+      <span>Deep Field</span>
+    </a>
+    <nav class="site" aria-label="Primary">
+      <a href="/work.html">Work</a>
+      <a href="/services.html">Services</a>
+      <a href="/pay.html" aria-current="page">Billing</a>
+      <a href="/contact.html" class="hide-sm">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="ink" style="padding:88px 0 72px">
+    <div class="wrap">
+      <p class="eyebrow" style="color:#9AA3AF">Client billing</p>
+      <h1 class="display" style="max-width:18ch">Settle up<span class="focal" aria-hidden="true"></span></h1>
+      <p class="lede" style="margin-top:24px;max-width:54ch;color:#9AA3AF">Start a monthly care plan, or pay a one-off invoice. Card details are handled by Stripe and never touch this site.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+
+      <div class="notice reveal" id="setup-notice" style="margin-bottom:56px">
+        <strong>Not yet taking payments.</strong> The Stripe links for this page have not been
+        created — see <span style="font-family:var(--font-mono);font-size:13px">assets/payment-links.js</span>.
+        Until they are, every button here routes to the contact page instead of a dead end.
+      </div>
+
+      <!-- ---------------- ONE-OFF ---------------- -->
+      <h2 class="reveal" id="invoice" style="margin-bottom:8px">Pay an invoice</h2>
+      <p class="muted reveal" style="margin-bottom:32px">For project balances, deposits and any one-off work. Enter the amount shown on your invoice, and put the invoice number (it looks like <span style="font-family:var(--font-mono);font-size:14px">DF-2026-001</span>) in the note field so it can be matched to your account.</p>
+
+      <div class="grid g2" style="align-items:start">
+        <div class="card reveal">
+          <h3>Settle an invoice</h3>
+          <p style="margin-bottom:28px">Pay any amount by card. You'll get a receipt by email immediately.</p>
+          <a class="btn btn-primary btn-block" data-pay="invoice_any_amount" href="/contact.html" rel="noopener">Pay by card</a>
+          <p class="small muted" style="margin-top:16px">Secure checkout hosted by Stripe. Visa, Mastercard, Amex and Apple&nbsp;Pay.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Paying by bank transfer?</h3>
+          <p style="margin-bottom:28px">Bank details are printed on your invoice. If you can't find it, or the invoice number isn't clear, ask and it'll be re-sent the same day.</p>
+          <a class="btn btn-secondary btn-block" href="/contact.html">Request the invoice again</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------- CARE PLANS ---------------- -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2 class="reveal" id="care" style="margin-bottom:8px">Set up a monthly care plan</h2>
+      <p class="muted reveal" style="margin-bottom:40px">Enter your card once and it charges automatically each month — no invoice to chase. Billed in advance, in USD. Cancel any time on 30 days' notice; the plan runs to the end of the period you've paid for.</p>
+
+      <div class="grid g3">
+        <div class="card tier reveal">
+          <span class="badge">Essential</span>
+          <div class="price">$45</div><div class="per">per month</div>
+          <ul>
+            <li>Hosting and SSL</li><li>Automatic backups</li>
+            <li>Security updates</li><li>Uptime monitoring</li>
+          </ul>
+          <a class="btn btn-secondary btn-block" data-pay="care_essential" href="/contact.html" rel="noopener">Set up $45 / month</a>
+        </div>
+        <div class="card tier featured reveal">
+          <span class="badge">Active</span>
+          <div class="price">$95</div><div class="per">per month</div>
+          <ul>
+            <li>Everything in Essential</li>
+            <li>Up to 1 hour of content changes each month</li>
+            <li>Copy, images and small layout edits</li>
+          </ul>
+          <a class="btn btn-primary btn-block" data-pay="care_active" href="/contact.html" rel="noopener">Set up $95 / month</a>
+        </div>
+        <div class="card tier reveal">
+          <span class="badge">Partner</span>
+          <div class="price">$180</div><div class="per">per month</div>
+          <ul>
+            <li>Everything in Active</li>
+            <li>Priority 48-hour turnaround</li>
+            <li>Quarterly review call</li>
+          </ul>
+          <a class="btn btn-secondary btn-block" data-pay="care_partner" href="/contact.html" rel="noopener">Set up $180 / month</a>
+        </div>
+      </div>
+
+      <p class="small muted reveal" style="margin-top:24px">Not sure which plan you're on? <a class="link" href="/contact.html">Ask</a> — and don't start a second one, it would bill you twice.</p>
+    </div>
+  </section>
+
+  <!-- ---------------- MANAGE ---------------- -->
+  <div class="ink">
+    <section>
+      <div class="wrap">
+        <div class="case-head">
+          <div>
+            <p class="eyebrow" style="color:#9AA3AF">Already on a plan</p>
+            <h2 style="color:#F6F4EF">Manage your subscription</h2>
+          </div>
+          <div>
+            <p style="color:#9AA3AF">Change the card on file, download past receipts, or cancel — all without going through us. Sign in with the email address your plan was set up with.</p>
+            <div style="margin-top:28px">
+              <a class="btn btn-primary" style="background:#F6F4EF;color:#0C1019" data-pay="customer_portal" href="/contact.html" rel="noopener">Open the billing portal</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section>
+    <div class="wrap narrow">
+      <h2 class="reveal" style="margin-bottom:32px">Payment terms</h2>
+      <div class="table-scroll reveal">
+        <table>
+          <tbody>
+            <tr><td><strong>Projects</strong></td><td>Paid in full up front, due on receipt. Work begins once it clears. Where a split has been agreed, 50% on receipt and 50% on launch.</td></tr>
+            <tr><td><strong>Care plans</strong></td><td>Monthly in advance, Net 14. Continue until cancelled on 30 days' written notice.</td></tr>
+            <tr><td><strong>Late payment</strong></td><td>Active work pauses 14 days past a due date, until the account is settled.</td></tr>
+            <tr><td><strong>Scope</strong></td><td>Anything outside the agreed brief is quoted before it starts — never billed as a surprise.</td></tr>
+            <tr><td><strong>Ownership</strong></td><td>You own the site and the domain outright on final payment.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted reveal" style="margin-top:24px">All amounts in USD. Deep Field is not registered for VAT, so no tax is charged. Card payments are processed by Stripe — Deep Field never sees or stores your card details.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="wordmark" href="/" style="margin-bottom:12px">
+          <span>Deep Field</span>
+        </a>
+        <p class="small muted" style="max-width:32ch">We find the signal in the noise.</p>
+      </div>
+      <nav class="fnav" aria-label="Footer">
+        <a href="/work.html">Work</a>
+        <a href="/services.html">Services</a>
+        <a href="/pay.html">Billing</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+    <p class="legal">© 2026 Harry McCahill t/a Deep Field. Woodstock, Oxfordshire, England.</p>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+
+<script src="/assets/site.js" defer></script>
+<script src="/assets/payment-links.js"></script>
+<script src="/assets/pay.js" defer></script>
+</body>
+</html>

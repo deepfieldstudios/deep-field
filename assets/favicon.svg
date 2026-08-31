@@ -1,0 +1,9 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Deep Field">
+  <rect width="120" height="120" rx="16" fill="#0C1019"/>
+  <rect x="26" y="26" width="68" height="68" rx="3" fill="none" stroke="#F6F4EF" stroke-width="2" opacity="0.28"/>
+  <g fill="#F6F4EF">
+    <circle cx="44" cy="42" r="4"/><circle cx="78" cy="38" r="3" opacity="0.6"/>
+    <circle cx="48" cy="78" r="3" opacity="0.6"/>
+  </g>
+  <circle cx="72" cy="68" r="8" fill="#15BFAE"/>
+</svg>

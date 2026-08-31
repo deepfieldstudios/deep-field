@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Work — Deep Field</title>
+<meta name="description" content="Case studies from Deep Field: Jungle Bay Dominica, Freeflow Dynamics, Blue Element and the Dominica Watersports Association. Measured results, not adjectives.">
+<link rel="canonical" href="https://deepfieldstudios.com/work.html">
+<meta name="theme-color" content="#0C1019">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Deep Field">
+<meta property="og:url" content="https://deepfieldstudios.com/work.html">
+<meta property="og:title" content="Work — Deep Field">
+<meta property="og:description" content="Case studies from Deep Field: Jungle Bay Dominica, Freeflow Dynamics, Blue Element and the Dominica Watersports Association. Measured results, not adjectives.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap inner">
+    <a class="wordmark" href="/" aria-label="Deep Field — home">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="120" height="120" rx="16" fill="#0C1019"/>
+        <rect x="30" y="26" width="60" height="60" rx="3" fill="none" stroke="#F6F4EF" stroke-width="2" opacity="0.22"/>
+        <g fill="#F6F4EF"><circle cx="46" cy="40" r="3"/><circle cx="78" cy="36" r="2.2" opacity=".6"/><circle cx="46" cy="74" r="2.2" opacity=".6"/></g>
+        <circle cx="70" cy="62" r="6" fill="#15BFAE"/>
+      </svg>
+      <span>Deep Field</span>
+    </a>
+    <nav class="site" aria-label="Primary">
+      <a href="/work.html" aria-current="page">Work</a>
+      <a href="/services.html">Services</a>
+      <a href="/pay.html">Billing</a>
+      <a href="/contact.html" class="hide-sm">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="ink" style="padding:88px 0 72px">
+    <div class="wrap">
+      <p class="eyebrow" style="color:#9AA3AF">Work</p>
+      <h1 class="display" style="max-width:18ch">Proof, not adjectives</h1>
+      <p class="lede" style="margin-top:24px;max-width:56ch;color:#9AA3AF">Four live sites. Where the numbers are ours to publish, they are here in full — measured before and after, on the same pages.</p>
+    </div>
+  </div>
+
+  <section style="padding-bottom:0">
+    <div class="wrap">
+
+      <!-- ============ JUNGLE BAY ============ -->
+      <article class="case" id="jungle-bay">
+        <div class="case-head">
+          <div>
+            <p class="eyebrow reveal">Case study 01 · Hospitality</p>
+            <h2 class="reveal" style="font-weight:600;font-size:clamp(28px,3.6vw,34px)">Jungle Bay Dominica</h2>
+            <p class="reveal" style="margin-top:16px">An award-winning eco-resort whose website took <strong>41 seconds</strong> to show anything on a phone, and which it did not own.</p>
+          </div>
+          <div class="reveal">
+            <dl>
+              <dt>Live at</dt><dd><a class="link" href="https://www.junglebaydominica.com" rel="noopener">junglebaydominica.com</a></dd>
+              <dt>Scope</dt><dd>Platform migration, full rebuild, DNS &amp; analytics carry-over</dd>
+              <dt>Stack</dt><dd>Static HTML, Cloudflare Pages</dd>
+              <dt>Launched</dt><dd>August 2026</dd>
+            </dl>
+          </div>
+        </div>
+
+        <div class="grid g4" style="margin-top:48px">
+          <div class="metric reveal"><span class="n">41.2s → <em>2.3s</em></span><span class="l">Mobile largest contentful paint</span></div>
+          <div class="metric reveal"><span class="n"><em>98</em> / 100 / 100</span><span class="l">Lighthouse performance, accessibility, SEO</span></div>
+          <div class="metric reveal"><span class="n">270 KB</span><span class="l">Whole page, including images</span></div>
+          <div class="metric reveal"><span class="n">88/88</span><span class="l">URLs resolve — 77 canonical, 11 variants</span></div>
+        </div>
+
+        <div class="par">
+          <div class="reveal">
+            <h4>Problem</h4>
+            <p>The site was built and hosted by a hospitality marketing vendor. Jungle Bay could not edit it, move it, or take it with them — and fifteen years of accumulated search history sat inside addresses only that vendor controlled. On mobile it was effectively unusable: an 8 MB hero video loading before anything appeared.</p>
+          </div>
+          <div class="reveal">
+            <h4>Approach</h4>
+            <p>Rather than copy the old site, we extracted only what belonged to Jungle Bay — their words and their photographs — and discarded every trace of the vendor's markup. Boilerplate was detected by how often it repeated, so nothing about the old platform's structure was carried across. A verification step fails the build outright if a vendor string survives.</p>
+          </div>
+          <div class="reveal">
+            <h4>Result</h4>
+            <p>A site eighteen times faster on mobile, weighing 270 KB with 1.9 KB of JavaScript where there had been three separate frameworks. Every one of the 77 canonical addresses still resolves, so no ranking was lost in the move. The resort owns the code, the hosting and the domain outright.</p>
+          </div>
+        </div>
+
+        <div class="stage reveal">
+          <div class="bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="url">junglebaydominica.com</span>
+          </div>
+          <div class="body">
+            <img src="/assets/case-jungle-bay.webp" alt="The Jungle Bay Dominica homepage — a full-bleed photograph of a jungle river gorge behind the resort wordmark." loading="lazy" width="1200" height="625">
+          </div>
+        </div>
+      </article>
+
+      <!-- ============ FREEFLOW ============ -->
+      <article class="case" id="freeflow">
+        <div class="case-head">
+          <div>
+            <p class="eyebrow reveal">Case study 02 · Coaching</p>
+            <h2 class="reveal" style="font-weight:600;font-size:clamp(28px,3.6vw,34px)">Freeflow Dynamics</h2>
+            <p class="reveal" style="margin-top:16px">A seventeen-time US national record holder, coaching without a home of her own on the web.</p>
+          </div>
+          <div class="reveal">
+            <dl>
+              <dt>Live at</dt><dd><a class="link" href="https://freeflowdynamics.com" rel="noopener">freeflowdynamics.com</a></dd>
+              <dt>Scope</dt><dd>Design &amp; build, five pages, booking integration</dd>
+              <dt>Stack</dt><dd>Static HTML, GitHub Pages</dd>
+              <dt>Launched</dt><dd>June 2026</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="par">
+          <div class="reveal">
+            <h4>Problem</h4>
+            <p>Natalie Bruce's record and her coaching practice existed only across social profiles she did not control. Prospective clients had nowhere to understand the programs, or to book.</p>
+          </div>
+          <div class="reveal">
+            <h4>Approach</h4>
+            <p>Photography-led and deliberately quiet — her images do the persuading. Programs laid out so the decision is obvious, with booking handled inline rather than pushed to email.</p>
+          </div>
+          <div class="reveal">
+            <h4>Result</h4>
+            <p>The studio's first client site, and the pattern every build since has followed: custom design, static output, hosting that costs nothing, and full ownership handed over at launch.</p>
+          </div>
+        </div>
+        <div class="stage reveal">
+          <div class="bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="url">freeflowdynamics.com</span>
+          </div>
+          <div class="body">
+            <img src="/assets/case-freeflow.webp" alt="The Freeflow Dynamics homepage — a freediver descending a line underwater beside the coaching introduction." loading="lazy" width="1200" height="689">
+          </div>
+        </div>
+      </article>
+
+      <!-- ============ BLUE ELEMENT ============ -->
+      <article class="case" id="blue-element">
+        <div class="case-head">
+          <div>
+            <p class="eyebrow reveal">Case study 03 · Sport</p>
+            <h2 class="reveal" style="font-weight:600;font-size:clamp(28px,3.6vw,34px)">Blue Element</h2>
+            <p class="reveal" style="margin-top:16px">An international freediving competition and training centre in Dominica, moving off WordPress.</p>
+          </div>
+          <div class="reveal">
+            <dl>
+              <dt>Live at</dt><dd><a class="link" href="https://blueelementstore.com" rel="noopener">blueelementstore.com</a></dd>
+              <dt>Scope</dt><dd>Design &amp; build, store, WordPress replacement</dd>
+              <dt>Stack</dt><dd>Static HTML, GitHub Pages</dd>
+              <dt>Launched</dt><dd>August 2026</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="par">
+          <div class="reveal">
+            <h4>Problem</h4>
+            <p>A WordPress install carrying plugin licences, update risk and hosting cost, for a site that is read far more often than it is edited.</p>
+          </div>
+          <div class="reveal">
+            <h4>Approach</h4>
+            <p>Rebuilt as plain static pages — no database, no admin panel, no plugins to keep patched. Course and competition information structured so a season's changes are a small edit rather than a rebuild.</p>
+          </div>
+          <div class="reveal">
+            <h4>Result</h4>
+            <p>A faster site with no recurring platform cost and no security surface to maintain.</p>
+          </div>
+        </div>
+        <div class="stage reveal">
+          <div class="bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="url">blueelementstore.com</span>
+          </div>
+          <div class="body">
+            <img src="/assets/case-blue-element.webp" alt="The Blue Element homepage — a pod of sperm whales underwater off Dominica." loading="lazy" width="1200" height="689">
+          </div>
+        </div>
+      </article>
+
+      <!-- ============ DWA ============ -->
+      <article class="case" id="dwa">
+        <div class="case-head">
+          <div>
+            <p class="eyebrow reveal">Case study 04 · Non-profit</p>
+            <h2 class="reveal" style="font-weight:600;font-size:clamp(28px,3.6vw,34px)">Dominica Watersports Association</h2>
+            <p class="reveal" style="margin-top:16px">One public face for the island's dive shops, operators and marine tourism.</p>
+          </div>
+          <div class="reveal">
+            <dl>
+              <dt>Live at</dt><dd><a class="link" href="https://dominicawatersports.com" rel="noopener">dominicawatersports.com</a></dd>
+              <dt>Scope</dt><dd>Design &amp; build, member directory</dd>
+              <dt>Stack</dt><dd>Static HTML, Cloudflare Pages</dd>
+              <dt>Launched</dt><dd>August 2026</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="par">
+          <div class="reveal">
+            <h4>Problem</h4>
+            <p>A member association whose operators were each visible individually, but which had no single place representing the sector to visitors planning a trip.</p>
+          </div>
+          <div class="reveal">
+            <h4>Approach</h4>
+            <p>A directory-led site that puts members first and explains the association second — because the visitor is looking for an operator, not an organisation.</p>
+          </div>
+          <div class="reveal">
+            <h4>Result</h4>
+            <p>A shared front door for Dominica's watersports sector, running at no hosting cost to a non-profit.</p>
+          </div>
+        </div>
+        <div class="stage reveal">
+          <div class="bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="url">dominicawatersports.com</span>
+          </div>
+          <div class="body">
+            <img src="/assets/case-dwa.webp" alt="The Dominica Watersports Association homepage — an underwater sunlit reef behind the association introduction." loading="lazy" width="1200" height="689">
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="ink">
+    <section>
+      <div class="wrap narrow" style="text-align:center">
+        <h2 style="color:#F6F4EF">Your work, seen clearly</h2>
+        <p class="lede" style="margin:20px auto 0;color:#9AA3AF">Tell us what you are building. The first mockup is free.</p>
+        <div style="margin-top:36px"><a class="btn btn-primary" style="background:#F6F4EF;color:#0C1019" href="/contact.html">Book a call</a></div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="wordmark" href="/" style="margin-bottom:12px">
+          <span>Deep Field</span>
+        </a>
+        <p class="small muted" style="max-width:32ch">We find the signal in the noise.</p>
+      </div>
+      <nav class="fnav" aria-label="Footer">
+        <a href="/work.html">Work</a>
+        <a href="/services.html">Services</a>
+        <a href="/pay.html">Billing</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+    <p class="legal">© 2026 Harry McCahill t/a Deep Field. Woodstock, Oxfordshire, England.</p>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
