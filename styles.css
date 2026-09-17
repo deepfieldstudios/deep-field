@@ -5,7 +5,7 @@
 :root{
   --bg:#F6F4EF; --surface:#FFFFFF; --text-primary:#0C1019; --text-secondary:#6B7280;
   --border:#E2DED5; --accent:#15BFAE; --accent-alt:#C7A14A;
-  --font-display:"Fraunces",Georgia,serif;
+  --font-display:"Inter",system-ui,-apple-system,sans-serif;
   --font-body:"Inter",system-ui,-apple-system,sans-serif;
   --font-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
   --radius-sm:6px; --radius-md:10px; --radius-lg:16px;
@@ -37,11 +37,11 @@ section{padding:96px 0}
 @media(max-width:720px){section{padding:64px 0}}
 
 /* ---------- type ---------- */
-h1,h2,h3{font-family:var(--font-display);font-weight:600;letter-spacing:-0.01em;line-height:1.1}
-.display{font-size:clamp(38px,6.4vw,56px);line-height:1.05}
+h1,h2,h3{font-family:var(--font-display);font-weight:300;letter-spacing:-0.03em;line-height:1.08}
+.display{font-size:clamp(38px,6.4vw,56px);line-height:1.02;font-weight:200;letter-spacing:-0.035em}
 h1{font-size:clamp(32px,5vw,40px)}
-h2{font-size:clamp(25px,3.4vw,28px);font-weight:400;line-height:1.2;letter-spacing:0}
-h3{font-size:21px;font-weight:600}
+h2{font-size:clamp(26px,3.6vw,34px);font-weight:300;line-height:1.14;letter-spacing:-0.025em}
+h3{font-size:19px;font-weight:500;letter-spacing:-0.015em}
 p{max-width:64ch}
 .lede{font-size:clamp(18px,2.1vw,20px);color:var(--text-secondary)}
 .small{font-size:14px;line-height:1.5}
@@ -53,15 +53,36 @@ p{max-width:64ch}
 
 /* ---------- header ---------- */
 header.site{
-  position:sticky;top:0;z-index:50;background:rgba(246,244,239,.88);
-  backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--border);
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:transparent;border-bottom:1px solid transparent;
+  transition:background var(--motion-duration) var(--motion-ease),
+             border-color var(--motion-duration) var(--motion-ease),
+             backdrop-filter var(--motion-duration) var(--motion-ease);
 }
+/* Over the dark hero the chrome is light; once scrolled it becomes the bone bar. */
+header.site .wordmark span,header.site nav.site a{color:#F6F4EF}
+header.site .wordmark svg rect:first-of-type{opacity:.35}
+header.site.stuck{
+  background:rgba(246,244,239,.86);
+  backdrop-filter:saturate(180%) blur(14px);
+  border-bottom-color:var(--border);
+}
+header.site.stuck .wordmark span{color:var(--text-primary)}
+header.site.stuck nav.site a{color:var(--text-secondary)}
+header.site.stuck nav.site a:hover,
+header.site.stuck nav.site a[aria-current="page"]{color:var(--text-primary)}
+header.site.stuck .wordmark svg rect:first-of-type{opacity:1}
+/* Pages without a dark hero start in the scrolled state. */
+body.lightnav header.site{background:rgba(246,244,239,.86);backdrop-filter:saturate(180%) blur(14px);border-bottom-color:var(--border)}
+body.lightnav header.site .wordmark span{color:var(--text-primary)}
+body.lightnav header.site nav.site a{color:var(--text-secondary)}
+body.lightnav header.site .wordmark svg rect:first-of-type{opacity:1}
 header.site .inner{display:flex;align-items:center;justify-content:space-between;height:68px}
 .wordmark{display:flex;align-items:center;gap:12px;text-decoration:none}
 .wordmark svg{width:28px;height:28px;border-radius:5px;flex:none}
 .wordmark span{
-  font-family:var(--font-display);font-weight:400;font-size:15px;
-  letter-spacing:0.16em;text-transform:uppercase;
+  font-family:var(--font-display);font-weight:400;font-size:14px;
+  letter-spacing:0.18em;text-transform:uppercase;
 }
 nav.site{display:flex;align-items:center;gap:28px}
 nav.site a{
@@ -95,12 +116,12 @@ nav.site a:hover,nav.site a[aria-current="page"]{color:var(--text-primary)}
 .hero{position:relative;overflow:hidden;padding:120px 0 104px}
 .hero .starfield{
   position:absolute;inset:0;object-fit:cover;width:100%;height:100%;
-  opacity:.20;pointer-events:none;
+  opacity:.62;pointer-events:none;
 }
 /* scrim: keeps the type column near-black so the words always win */
 .hero::after{
   content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
-  background:linear-gradient(100deg,#0C1019 0%,rgba(12,16,25,.92) 34%,rgba(12,16,25,.55) 62%,rgba(12,16,25,.34) 100%);
+  background:linear-gradient(100deg,rgba(12,16,25,.96) 0%,rgba(12,16,25,.82) 30%,rgba(12,16,25,.42) 58%,rgba(12,16,25,.18) 100%);
 }
 .hero .inner{position:relative;z-index:1}
 .hero .display{max-width:16ch}
@@ -140,8 +161,8 @@ a.card:hover{transform:translateY(-3px);border-color:var(--accent)}
 
 /* ---------- metrics ---------- */
 .metric .n{
-  font-family:var(--font-display);font-size:clamp(30px,4vw,40px);font-weight:600;
-  line-height:1.1;letter-spacing:-0.01em;display:block;
+  font-family:var(--font-display);font-size:clamp(30px,4vw,42px);font-weight:200;
+  line-height:1.1;letter-spacing:-0.035em;display:block;
 }
 .metric .l{font-size:14px;color:var(--text-secondary);margin-top:8px;display:block}
 .metric .n em{font-style:normal;color:var(--accent)}
@@ -180,7 +201,7 @@ a.card:hover{transform:translateY(-3px);border-color:var(--accent)}
 /* ---------- pricing ---------- */
 .tier{display:flex;flex-direction:column;height:100%}
 .tier .price{
-  font-family:var(--font-display);font-size:36px;font-weight:600;letter-spacing:-0.01em;
+  font-family:var(--font-display);font-size:38px;font-weight:200;letter-spacing:-0.035em;
   margin:16px 0 4px;
 }
 .tier .per{font-size:14px;color:var(--text-secondary)}
@@ -243,14 +264,13 @@ footer.site .legal{margin-top:40px;font-size:13px;color:var(--text-secondary)}
    Brief: eyecatching, minimal, effects that demonstrate craft, no gimmicks,
    and no cost to pace. Everything here is CSS; the only JS is a ~1KB fallback
    for browsers without scroll-driven animations.
-   The type stays Fraunces — a heavy grotesk is what every other studio site
-   uses, and looking like them is the thing we're trying to avoid.
+   Type is Inter only, display at weight 200 — one voice, used well.
    ========================================================================== */
 
 /* ---------- oversized display ---------- */
 .xl{
-  font-family:var(--font-display);font-weight:600;
-  font-size:clamp(44px,8.6vw,132px);line-height:.94;letter-spacing:-0.025em;
+  font-family:var(--font-display);font-weight:200;
+  font-size:clamp(42px,8.2vw,124px);line-height:.98;letter-spacing:-0.042em;
   margin:0;
 }
 .xl .line{display:block;position:relative}
@@ -294,8 +314,8 @@ footer.site .legal{margin-top:40px;font-size:13px;color:var(--text-secondary)}
    One statement per page resolves from slate to ink as it scrolls through.
    Native where supported; the JS fallback sets --p on a timer-free observer. */
 .fill{
-  font-family:var(--font-display);font-weight:600;
-  font-size:clamp(26px,4.4vw,52px);line-height:1.12;letter-spacing:-0.02em;
+  font-family:var(--font-display);font-weight:200;
+  font-size:clamp(26px,4.4vw,52px);line-height:1.16;letter-spacing:-0.035em;
   max-width:18ch;
   background:linear-gradient(90deg,var(--text-primary) 0 var(--p,0%),var(--text-secondary) var(--p,0%) 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
@@ -374,3 +394,55 @@ a.card:hover .go{opacity:1;transform:none}
 }
 .strip span{white-space:nowrap}
 .strip .sep{color:var(--accent);opacity:.6}
+
+
+/* ==========================================================================
+   Carousel — scroll-snap, no library. Keyboard and touch both work because
+   it is a real scroll container, not a transform trick.
+   ========================================================================== */
+.car{position:relative}
+.car-track{
+  display:flex;align-items:flex-start;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;padding-bottom:4px;
+}
+.car-track::-webkit-scrollbar{display:none}
+.car-slide{
+  flex:0 0 100%;scroll-snap-align:center;
+  border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;
+  background:var(--surface);
+}
+.car-slide img{width:100%;height:auto;aspect-ratio:1200/691;object-fit:cover;object-position:top center;display:block}
+.car-slide figcaption{
+  font-size:13px;color:var(--text-secondary);padding:14px 18px;
+  border-top:1px solid var(--border);
+}
+.car-ui{display:flex;align-items:center;gap:14px;margin-top:16px}
+.car-btn{
+  width:38px;height:38px;border-radius:50%;border:1px solid var(--border);
+  background:var(--surface);color:var(--text-primary);cursor:pointer;
+  display:grid;place-items:center;font-size:15px;line-height:1;
+  transition:border-color var(--motion-duration) var(--motion-ease),
+             transform var(--motion-duration) var(--motion-ease);
+}
+.car-btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+.car-btn[disabled]{opacity:.32;cursor:default;transform:none}
+.car-dots{display:flex;gap:7px;margin-left:auto}
+.car-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--border);
+  border:0;padding:0;cursor:pointer;
+  transition:background var(--motion-duration) var(--motion-ease),
+             width var(--motion-duration) var(--motion-ease);
+}
+.car-dot[aria-current="true"]{background:var(--accent);width:18px;border-radius:3px}
+.car-count{font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)}
+
+/* fixed header needs the first section to clear it */
+.hero{padding-top:148px}
+body.lightnav main>div:first-child,
+body.lightnav main>section:first-child{padding-top:132px}
+@media(max-width:720px){
+  .hero{padding-top:116px}
+  body.lightnav main>div:first-child,
+  body.lightnav main>section:first-child{padding-top:104px}
+}

@@ -8,6 +8,18 @@
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasIO = 'IntersectionObserver' in window;
 
+  /* ---- 0. navbar: transparent over the hero, solid once scrolled ---- */
+  var header = document.querySelector('header.site');
+  if (header && !document.body.classList.contains('lightnav')) {
+    var stuck = false;
+    var onNav = function () {
+      var should = (window.scrollY || document.documentElement.scrollTop) > 40;
+      if (should !== stuck) { stuck = should; header.classList.toggle('stuck', stuck); }
+    };
+    addEventListener('scroll', onNav, { passive: true });
+    onNav();
+  }
+
   /* ---- 1. reveal ---- */
   var els = document.querySelectorAll('.reveal');
   if (!hasIO || reduce) {
@@ -50,6 +62,50 @@
     }, { threshold: 0.6 });
     Array.prototype.forEach.call(counters, function (el) { cio.observe(el); });
   }
+
+  /* ---- 2b. carousels: real scroll containers, so touch and keys work free ---- */
+  Array.prototype.forEach.call(document.querySelectorAll('.car'), function (car) {
+    var track = car.querySelector('.car-track');
+    var slides = [].slice.call(track.children);
+    var prev = car.querySelector('[data-car="prev"]');
+    var next = car.querySelector('[data-car="next"]');
+    var dots = [].slice.call(car.querySelectorAll('.car-dot'));
+    var countEl = car.querySelector('.car-count');
+    if (!slides.length) return;
+
+    function index() {
+      var mid = track.scrollLeft + track.clientWidth / 2;
+      var best = 0, bestD = Infinity;
+      slides.forEach(function (s, i) {
+        var c = s.offsetLeft + s.offsetWidth / 2;
+        var d = Math.abs(c - mid);
+        if (d < bestD) { bestD = d; best = i; }
+      });
+      return best;
+    }
+    function sync() {
+      var i = index();
+      dots.forEach(function (d, j) { d.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+      if (countEl) countEl.textContent = (i + 1) + ' / ' + slides.length;
+      if (prev) prev.disabled = i === 0;
+      if (next) next.disabled = i === slides.length - 1;
+    }
+    function go(i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: slides[i].offsetLeft - (track.clientWidth - slides[i].offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    if (prev) prev.addEventListener('click', function () { go(index() - 1); });
+    if (next) next.addEventListener('click', function () { go(index() + 1); });
+    dots.forEach(function (d, j) { d.addEventListener('click', function () { go(j); }); });
+    track.addEventListener('scroll', function () {
+      clearTimeout(track._t); track._t = setTimeout(sync, 90);
+    }, { passive: true });
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(index() + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(index() - 1); }
+    });
+    sync();
+  });
 
   /* ---- 3. scroll-driven fallback (Firefox, older Safari) ---- */
   var native = CSS && CSS.supports && CSS.supports('animation-timeline', 'view()');
