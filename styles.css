@@ -95,7 +95,12 @@ nav.site a:hover,nav.site a[aria-current="page"]{color:var(--text-primary)}
 .hero{position:relative;overflow:hidden;padding:120px 0 104px}
 .hero .starfield{
   position:absolute;inset:0;object-fit:cover;width:100%;height:100%;
-  opacity:.42;pointer-events:none;
+  opacity:.20;pointer-events:none;
+}
+/* scrim: keeps the type column near-black so the words always win */
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:linear-gradient(100deg,#0C1019 0%,rgba(12,16,25,.92) 34%,rgba(12,16,25,.55) 62%,rgba(12,16,25,.34) 100%);
 }
 .hero .inner{position:relative;z-index:1}
 .hero .display{max-width:16ch}
@@ -232,3 +237,140 @@ footer.site .legal{margin-top:40px;font-size:13px;color:var(--text-secondary)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:var(--gutter);top:12px;z-index:100;background:var(--surface);padding:10px 16px;border-radius:var(--radius-sm)}
+
+/* ==========================================================================
+   Presence layer — added 17 Sep 2026.
+   Brief: eyecatching, minimal, effects that demonstrate craft, no gimmicks,
+   and no cost to pace. Everything here is CSS; the only JS is a ~1KB fallback
+   for browsers without scroll-driven animations.
+   The type stays Fraunces — a heavy grotesk is what every other studio site
+   uses, and looking like them is the thing we're trying to avoid.
+   ========================================================================== */
+
+/* ---------- oversized display ---------- */
+.xl{
+  font-family:var(--font-display);font-weight:600;
+  font-size:clamp(44px,8.6vw,132px);line-height:.94;letter-spacing:-0.025em;
+  margin:0;
+}
+.xl .line{display:block;position:relative}
+/* the focal object sits between the lines, so type occludes it and it occludes type */
+.xl .line.over{z-index:3}
+.xl .line.under{z-index:1}
+
+/* ---------- the field: the logo idea at scale ---------- */
+.stagewrap{position:relative;isolation:isolate}
+.field{
+  position:absolute;z-index:2;pointer-events:none;
+  width:min(52vw,580px);aspect-ratio:1;
+  right:10%;top:52%;transform:translateY(-50%);
+}
+.field svg{width:100%;height:100%;overflow:visible}
+.field .frame{stroke:var(--text-primary);opacity:.22;fill:none;stroke-width:1}
+.field .dot{fill:var(--text-primary)}
+.field .focal{fill:var(--accent)}
+.field .bloom{fill:var(--accent);opacity:.65}
+.ink .field .dot{fill:#F6F4EF}
+.ink .field .frame{fill:none;stroke:var(--accent);opacity:.5;stroke-width:1.25}
+
+@media(prefers-reduced-motion:no-preference){
+  .field .drift-a{animation:driftA 26s ease-in-out infinite alternate}
+  .field .drift-b{animation:driftB 34s ease-in-out infinite alternate}
+  .field .focalgrp{animation:breathe 6s var(--motion-ease) infinite}
+}
+@keyframes driftA{from{transform:translate(0,0)}to{transform:translate(6px,-8px)}}
+@keyframes driftB{from{transform:translate(0,0)}to{transform:translate(-7px,6px)}}
+@keyframes breathe{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.78;transform:scale(.94)}}
+
+@media(max-width:1180px) and (min-width:821px){
+  .field{width:min(40vw,400px);right:2%;opacity:.85}
+}
+@media(max-width:820px){
+  .field{position:relative;right:auto;top:auto;transform:none;
+    width:min(70vw,340px);margin:24px auto 0}
+}
+
+/* ---------- scroll-linked text fill ----------
+   One statement per page resolves from slate to ink as it scrolls through.
+   Native where supported; the JS fallback sets --p on a timer-free observer. */
+.fill{
+  font-family:var(--font-display);font-weight:600;
+  font-size:clamp(26px,4.4vw,52px);line-height:1.12;letter-spacing:-0.02em;
+  max-width:18ch;
+  background:linear-gradient(90deg,var(--text-primary) 0 var(--p,0%),var(--text-secondary) var(--p,0%) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.fill.wide{max-width:24ch}
+@supports (animation-timeline: view()){
+  @media(prefers-reduced-motion:no-preference){
+    .fill{
+      animation:fillsweep linear both;
+      animation-timeline:view();
+      animation-range:entry 20% cover 62%;
+    }
+    @keyframes fillsweep{from{--p:0%}to{--p:100%}}
+  }
+}
+@property --p{syntax:'<percentage>';inherits:false;initial-value:0%}
+
+/* ---------- numbered section head with progress rule ---------- */
+.sec-head{
+  display:flex;align-items:baseline;gap:20px;
+  padding-top:14px;border-top:1px solid var(--border);
+  position:relative;margin-bottom:56px;
+}
+.sec-head::after{
+  content:"";position:absolute;left:0;top:-1px;height:1px;
+  width:var(--seen,0%);background:var(--accent);
+}
+@supports (animation-timeline: view()){
+  @media(prefers-reduced-motion:no-preference){
+    .sec-head::after{
+      animation:rule linear both;animation-timeline:view();
+      animation-range:entry 90% cover 80%;
+    }
+    @keyframes rule{from{width:0%}to{width:100%}}
+  }
+}
+.sec-head .n{
+  font-family:var(--font-mono);font-size:12px;color:var(--accent);
+  letter-spacing:.08em;flex:none;
+}
+.sec-head .t{
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--text-secondary);font-weight:500;
+}
+.sec-head .r{margin-left:auto;font-size:12px;color:var(--text-secondary)}
+
+/* ---------- metric count-up ---------- */
+.metric .n{font-variant-numeric:tabular-nums}
+.metric[data-count] .n{will-change:contents}
+
+/* ---------- card craft ---------- */
+a.card{position:relative;overflow:hidden}
+a.card::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:var(--accent);transform:scaleX(0);transform-origin:0 50%;
+  transition:transform var(--motion-duration) var(--motion-ease);
+}
+a.card:hover::after{transform:scaleX(1)}
+a.card .go{
+  position:absolute;right:28px;bottom:28px;font-size:18px;color:var(--text-secondary);
+  opacity:0;transform:translateX(-6px);
+  transition:opacity var(--motion-duration) var(--motion-ease),
+             transform var(--motion-duration) var(--motion-ease);
+}
+a.card:hover .go{opacity:1;transform:none}
+
+/* work stage: lift the screenshot slightly on hover */
+.stage img{transition:transform 700ms var(--motion-ease)}
+.stage:hover img{transform:scale(1.015)}
+
+/* ---------- marquee-free running strip (clients) ---------- */
+.strip{
+  display:flex;flex-wrap:wrap;gap:10px 40px;align-items:center;
+  font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--text-secondary);
+}
+.strip span{white-space:nowrap}
+.strip .sep{color:var(--accent);opacity:.6}

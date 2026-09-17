@@ -43,28 +43,66 @@
 
 <main id="main">
 
-  <!-- Hero — the one dark section, one idea, one focal point -->
+  <!-- Hero. The focal object is the Deep Field mark at scale — a framed patch of
+       sky, one point in teal, in focus. It sits BETWEEN the type lines so the
+       words occlude it and it occludes the words. Brand idea, not a stock 3D blob. -->
   <div class="ink hero">
     <img class="starfield" src="/assets/deepfield-galaxies-deep-field-hero.webp" alt="" aria-hidden="true" fetchpriority="high" width="1600" height="900">
-    <div class="wrap inner">
-      <p class="eyebrow" style="color:#9AA3AF">Deep Field · Web &amp; AI studio</p>
-      <h1 class="display">Your work deserves to be seen clearly<span class="focal" aria-hidden="true"></span></h1>
-      <p class="lede">We build fast, beautiful, custom websites for people who have something worth showing — every detail in focus, nothing wasted.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="/contact.html">Book a call</a>
-        <a class="btn btn-secondary" href="/work.html">See the work</a>
+    <div class="wrap inner stagewrap">
+      <p class="eyebrow" style="color:#9AA3AF;position:relative;z-index:3">Deep Field · Web &amp; AI studio</p>
+
+      <div class="field" aria-hidden="true">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="bloom" x="-120%" y="-120%" width="340%" height="340%">
+              <feGaussianBlur stdDeviation="16"/>
+            </filter>
+          </defs>
+          <rect class="frame" x="70" y="70" width="260" height="260" rx="4"/>
+          <g class="dot drift-a" opacity=".55">
+            <circle cx="108" cy="116" r="2.4"/><circle cx="168" cy="96" r="3.1"/>
+            <circle cx="238" cy="124" r="2.2"/><circle cx="296" cy="104" r="1.8"/>
+            <circle cx="122" cy="196" r="2.6"/><circle cx="196" cy="214" r="2"/>
+          </g>
+          <g class="dot drift-b" opacity=".42">
+            <circle cx="286" cy="196" r="2.4"/><circle cx="134" cy="274" r="2.2"/>
+            <circle cx="204" cy="292" r="1.9"/><circle cx="268" cy="272" r="2.3"/>
+            <circle cx="308" cy="248" r="1.6"/><circle cx="92" cy="240" r="1.7"/>
+          </g>
+          <g class="focalgrp">
+            <circle class="bloom" cx="238" cy="196" r="17" filter="url(#bloom)"/>
+            <circle class="focal" cx="238" cy="196" r="7.5"/>
+          </g>
+        </svg>
       </div>
-      <p class="microcopy">Free first mockup. You don't pay until you love it.</p>
+
+      <h1 class="xl" style="color:#F6F4EF;position:relative">
+        <span class="line over">Your work</span>
+        <span class="line under">deserves to be</span>
+        <span class="line over">seen clearly</span>
+      </h1>
+
+      <div style="position:relative;z-index:3;max-width:46ch">
+        <p class="lede" style="margin-top:28px;color:#9AA3AF">Fast, custom websites for people who have something worth showing — every detail in focus, nothing wasted.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/contact.html">Book a call</a>
+          <a class="btn btn-secondary" href="/work.html">See the work</a>
+        </div>
+        <p class="microcopy">Free first mockup. You don't pay until you love it.</p>
+      </div>
     </div>
   </div>
 
   <!-- Proof: the numbers, before the words -->
   <section>
     <div class="wrap">
-      <p class="eyebrow reveal">Jungle Bay Dominica — a fifteen-year-old hotel site, rebuilt</p>
+      <div class="sec-head">
+        <span class="n">01</span><span class="t">Proof</span>
+        <span class="r">Jungle Bay Dominica — a fifteen-year-old hotel site, rebuilt</span>
+      </div>
       <div class="grid g4">
-        <div class="metric reveal"><span class="n">41.2s → <em>2.3s</em></span><span class="l">Mobile largest contentful paint</span></div>
-        <div class="metric reveal"><span class="n"><em>98</em> / 100 / 100</span><span class="l">Lighthouse performance, accessibility, SEO</span></div>
+        <div class="metric reveal" data-count="41.2|2.3|s"><span class="n">41.2s → <em>2.3s</em></span><span class="l">Mobile largest contentful paint</span></div>
+        <div class="metric reveal" data-count="46|98|"><span class="n"><em>98</em> / 100 / 100</span><span class="l">Lighthouse performance, accessibility, SEO</span></div>
         <div class="metric reveal"><span class="n">270 KB</span><span class="l">Whole page — 1.9 KB of JavaScript</span></div>
         <div class="metric reveal"><span class="n">88/88</span><span class="l">URLs preserved, no SEO lost</span></div>
       </div>
@@ -75,7 +113,10 @@
   <!-- What we do -->
   <section style="padding-top:0">
     <div class="wrap">
-      <h2 class="reveal" style="margin-bottom:40px">What the studio does</h2>
+      <div class="sec-head">
+        <span class="n">02</span><span class="t">Services</span>
+      </div>
+      <p class="fill wide reveal" style="margin-bottom:48px">We build the site, move it off whatever it is stuck on, and put AI to work on the parts that cost you time.</p>
       <div class="grid g3">
         <div class="card reveal">
           <h3>Websites</h3>
@@ -97,31 +138,31 @@
   <!-- Selected work -->
   <section style="padding-top:0">
     <div class="wrap">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:40px">
-        <h2 class="reveal">Selected work</h2>
-        <a class="link reveal" href="/work.html">All case studies →</a>
+      <div class="sec-head">
+        <span class="n">03</span><span class="t">Selected work</span>
+        <span class="r"><a class="link" href="/work.html">All case studies →</a></span>
       </div>
       <div class="grid g2">
         <a class="card reveal" href="/work.html#jungle-bay">
           <p class="eyebrow" style="margin-bottom:12px">Hospitality · Migration</p>
           <h3>Jungle Bay Dominica</h3>
           <p>An eco-resort trapped in a vendor platform, on a site taking 41 seconds to show anything on a phone. Rebuilt from its own words and pictures — eighteen times faster, and theirs to keep.</p>
-        </a>
+        <span class="go" aria-hidden="true">↗</span></a>
         <a class="card reveal" href="/work.html#freeflow">
           <p class="eyebrow" style="margin-bottom:12px">Coaching · Website</p>
           <h3>Freeflow Dynamics</h3>
           <p>A 17× US national record holder with no site of her own. A calm, photography-led home for the coaching practice — the studio's first client build.</p>
-        </a>
+        <span class="go" aria-hidden="true">↗</span></a>
         <a class="card reveal" href="/work.html#blue-element">
           <p class="eyebrow" style="margin-bottom:12px">Sport · Store</p>
           <h3>Blue Element</h3>
           <p>An international freediving competition and training centre in Dominica, moved off WordPress onto a static store that costs nothing to run.</p>
-        </a>
+        <span class="go" aria-hidden="true">↗</span></a>
         <a class="card reveal" href="/work.html#dwa">
           <p class="eyebrow" style="margin-bottom:12px">Non-profit · Website</p>
           <h3>Dominica Watersports Association</h3>
           <p>A member association needing one clear public face across dive shops, operators and the island's marine tourism.</p>
-        </a>
+        <span class="go" aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
