@@ -77,21 +77,23 @@ body.lightnav header.site{background:rgba(246,244,239,.86);backdrop-filter:satur
 body.lightnav header.site .wordmark span{color:var(--text-primary)}
 body.lightnav header.site nav.site a{color:var(--text-secondary)}
 body.lightnav header.site .wordmark svg rect:first-of-type{opacity:1}
-header.site .inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+header.site .inner{display:flex;align-items:center;justify-content:space-between;height:var(--bar)}
 .wordmark{display:flex;align-items:center;gap:12px;text-decoration:none}
-.wordmark svg{width:28px;height:28px;border-radius:5px;flex:none}
+.wordmark svg{width:34px;height:34px;border-radius:6px;flex:none}
 .wordmark span{
-  font-family:var(--font-display);font-weight:400;font-size:14px;
-  letter-spacing:0.18em;text-transform:uppercase;
+  font-family:var(--font-display);font-weight:400;font-size:16px;
+  letter-spacing:0.2em;text-transform:uppercase;
 }
-nav.site{display:flex;align-items:center;gap:28px}
+nav.site{display:flex;align-items:center;gap:36px}
 nav.site a{
-  text-decoration:none;font-size:15px;color:var(--text-secondary);
+  text-decoration:none;font-size:16px;color:var(--text-secondary);
   transition:color var(--motion-duration) var(--motion-ease);
 }
 nav.site a:hover,nav.site a[aria-current="page"]{color:var(--text-primary)}
 @media(max-width:720px){
-  nav.site{gap:18px}
+  nav.site{gap:20px}
+  .wordmark span{font-size:14px;letter-spacing:.16em}
+  .wordmark svg{width:28px;height:28px}
   nav.site a.hide-sm{display:none}
 }
 
@@ -114,12 +116,12 @@ nav.site a:hover,nav.site a[aria-current="page"]{color:var(--text-primary)}
 
 /* ---------- hero ---------- */
 .hero{position:relative;overflow:hidden;padding:calc(var(--bar) + 68px) 0 104px}
-.hero .starfield,.landing .starfield{
+.hero .starfield{
   position:absolute;inset:0;object-fit:cover;width:100%;height:100%;
   opacity:.62;pointer-events:none;
 }
 /* scrim: keeps the type column near-black so the words always win */
-.hero::after,.landing::after{
+.hero::after{
   content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
   background:linear-gradient(100deg,rgba(12,16,25,.96) 0%,rgba(12,16,25,.82) 30%,rgba(12,16,25,.42) 58%,rgba(12,16,25,.18) 100%);
 }
@@ -472,10 +474,10 @@ a.card:hover .go{opacity:1;transform:none}
 
 /* The bar is fixed, so every page that does not sit under a dark hero
    reserves its height on the body. Robust against inline padding. */
-:root{--bar:70px}
+:root{--bar:92px}
 body.lightnav{padding-top:var(--bar)}
 html{scroll-padding-top:calc(var(--bar) + 12px)}
-@media(max-width:720px){:root{--bar:62px}}
+@media(max-width:720px){:root{--bar:74px}}
 
 
 /* Data slide — the numbers behind each build, same frame as the screenshot. */
@@ -599,3 +601,73 @@ html{scroll-padding-top:calc(var(--bar) + 12px)}
   transition:border-color var(--motion-duration) var(--motion-ease),color var(--motion-duration) var(--motion-ease);
 }
 .sitelist a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+
+/* Landing without the photograph — flat ink, one faint bloom behind the
+   focal point so it reads as depth rather than a printed slab. */
+.landing{background:#0C1019}
+.landing::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(58% 52% at 68% 46%, rgba(21,191,174,.10) 0%, rgba(21,191,174,0) 62%),
+    radial-gradient(90% 80% at 50% 120%, rgba(246,244,239,.05) 0%, rgba(246,244,239,0) 70%);
+}
+.landing .field{opacity:.92}
+/* the description is the headline now, so give it the display treatment */
+.landing .lead{
+  font-family:var(--font-display);font-weight:200;
+  font-size:clamp(38px,6.6vw,86px);line-height:1.02;letter-spacing:-0.042em;
+  color:#F6F4EF;margin:0;max-width:14ch;
+}
+
+
+/* ==========================================================================
+   Cosmic microwave background — angular power spectrum.
+   The faint dots are the measurement; the teal line is the signal pulled
+   out of them. Drawn, not photographed: ~1.5 KB gzipped and crisp at any size.
+   ========================================================================== */
+.spectrum{
+  position:absolute;left:0;right:0;bottom:64px;z-index:1;
+  height:clamp(120px,22vh,230px);pointer-events:none;
+}
+.spectrum svg{width:100%;height:100%;display:block;overflow:visible}
+.spectrum .noise{fill:#F6F4EF;opacity:.42}
+.spectrum .signal{
+  fill:none;stroke:var(--accent);stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
+  filter:drop-shadow(0 0 10px rgba(21,191,174,.34));
+}
+@media(prefers-reduced-motion:no-preference){
+  .spectrum .signal{
+    stroke-dasharray:3000;stroke-dashoffset:3000;
+    animation:trace 2600ms var(--motion-ease) 260ms forwards;
+  }
+  .spectrum .noise circle{animation:twinkle 5s ease-in-out infinite}
+  .spectrum .noise circle:nth-child(3n){animation-delay:-1.7s}
+  .spectrum .noise circle:nth-child(3n+1){animation-delay:-3.1s}
+}
+@keyframes trace{to{stroke-dashoffset:0}}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.45}}
+
+.spectrum-cap{
+  position:relative;z-index:3;margin:0;
+  font-family:var(--font-display);font-weight:300;
+  font-size:clamp(15px,1.7vw,19px);letter-spacing:-0.01em;color:#F6F4EF;
+}
+.spectrum-note{
+  position:relative;z-index:3;margin:6px 0 0;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#6B7280;
+}
+.landing{padding-bottom:30px}
+.landing .wrap:last-of-type{margin-top:auto}
+
+/* the capability row, now on bone at the top of the work section */
+.index-row.light{
+  border-top-color:var(--border);margin:0 0 72px;padding-top:20px;
+  grid-template-columns:repeat(4,1fr);
+}
+.index-row.light .idx .t{color:var(--text-primary)}
+.index-row.light .idx .d{color:var(--text-secondary)}
+@media(max-width:900px){.index-row.light{grid-template-columns:repeat(2,1fr)}}
