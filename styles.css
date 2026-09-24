@@ -694,3 +694,17 @@ html{scroll-padding-top:calc(var(--bar) + 12px)}
   display:inline-block;transition:transform var(--motion-duration) var(--motion-ease);
 }
 .card.path:hover .path-go span{transform:translateX(5px)}
+
+
+/* Self-proving performance line — the site is the evidence. */
+.proof{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;
+  margin:36px 0 0;padding-top:20px;border-top:1px solid var(--border);
+  font-size:14px;
+}
+.proof-k{color:var(--text-secondary);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.proof-v{
+  font-family:var(--font-mono);font-size:15px;color:var(--text-primary);
+  padding:3px 9px;border:1px solid var(--border);border-radius:100px;
+}
+.proof .link{font-size:14px;margin-left:6px}
