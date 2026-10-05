@@ -13,18 +13,18 @@ window.DF_PAYMENTS = {
   // --- Care plans: RECURRING payment links, monthly, USD ----------------
   // Stripe: Payment links → + New → price type Recurring → Monthly.
   // Do NOT limit the use count on these — each is reused by every client.
-  care_essential: null,   // $45 / month  — hosting, SSL, backups, monitoring
-  care_active:    null,   // $95 / month  — Essential + 1 hr content changes
-  care_partner:   null,   // $180 / month — Active + 48h priority + quarterly call
+  care_essential: "https://buy.stripe.com/3cIaEYceE4jfd9HgtSg7e00",   // $45 / month  — hosting, SSL, backups, monitoring
+  care_active:    "https://buy.stripe.com/9B6aEY5QgdTP0mV7Xmg7e01",   // $95 / month  — Essential + 1 hr content changes
+  care_partner:   "https://buy.stripe.com/6oUaEYfqQ9Dzb1z5Peg7e02",   // $180 / month — Active + 48h priority + quarterly call
 
   // --- One-off settlement: "customer chooses price" link ----------------
   // Stripe: price type "Customer chooses price", min $1, collect name + email,
   // and enable the payer note field labelled "Invoice number".
   // Same link as config.json → payment.stripe_fallback_link. Keep them equal.
-  invoice_any_amount: null,
+  invoice_any_amount: "https://buy.stripe.com/9B600k0vWcPL9XvgtSg7e03",
 
   // --- Stripe-hosted customer portal ------------------------------------
   // Stripe: Settings → Billing → Customer portal → save, then copy the login link.
   // Lets clients change card details and cancel without emailing you.
-  customer_portal: null
+  customer_portal: "https://billing.stripe.com/p/login/3cIaEYceE4jfd9HgtSg7e00"
 };
