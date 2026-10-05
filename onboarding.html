@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Getting started — Deep Field</title>
+<meta name="description" content="A short form for new Deep Field clients: who can ask for changes, and what we should never change without asking you first.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0C1019">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .fld{display:block;margin-bottom:18px}
+  .fld > span{display:block;font-size:14px;margin-bottom:6px}
+  .fld input,.fld textarea,.fld select{width:100%;padding:12px 14px;border:1px solid var(--border);
+    border-radius:var(--radius-sm);font:inherit;background:var(--surface);color:var(--text-primary)}
+  .fld .hint{display:block;font-size:13px;color:var(--text-secondary);margin-top:6px;font-weight:400}
+  .pair{display:grid;gap:0 18px;grid-template-columns:1fr 1fr}
+  @media (max-width:620px){.pair{grid-template-columns:1fr}}
+  fieldset{border:1px solid var(--border);border-radius:var(--radius-sm);padding:22px;margin:0 0 28px;background:var(--surface)}
+  legend{padding:0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-secondary)}
+  .why{font-size:13.5px;color:var(--text-secondary);margin:-6px 0 20px;line-height:1.6}
+  .linkish{background:none;border:0;padding:0;font:inherit;color:var(--accent);cursor:pointer;text-decoration:underline}
+</style>
+</head>
+<body class="lightnav">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap inner">
+    <a class="wordmark" href="/" aria-label="Deep Field — home">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="120" height="120" rx="16" fill="#0C1019"/>
+        <rect x="30" y="26" width="60" height="60" rx="3" fill="none" stroke="#F6F4EF" stroke-width="2" opacity="0.22"/>
+        <g fill="#F6F4EF"><circle cx="46" cy="40" r="3"/><circle cx="78" cy="36" r="2.2" opacity=".6"/><circle cx="46" cy="74" r="2.2" opacity=".6"/></g>
+        <circle cx="70" cy="62" r="6" fill="#15BFAE"/>
+      </svg>
+      <span>Deep Field</span>
+    </a>
+    <nav class="site" aria-label="Primary">
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/redesign.html">Redesign</a>
+      <a href="/management.html">Management</a>
+      <a href="/contact.html" class="hide-sm">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="ink" style="padding:88px 0 72px">
+    <div class="wrap">
+      <p class="eyebrow" style="color:#9AA3AF">Getting started</p>
+      <h1 class="display" style="max-width:18ch">So we can just get on with it<span class="focal" aria-hidden="true"></span></h1>
+      <p class="lede" style="margin-top:24px;max-width:56ch;color:#9AA3AF">Five minutes, once. After this, when you ask for a change we can make it straight away instead of writing back to check who you are and what you meant.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap" style="max-width:720px">
+
+      <p id="email-fallback" class="lede" style="max-width:52ch">
+        Send these details to <a href="mailto:deepfieldstudios@gmail.com">deepfieldstudios@gmail.com</a>
+        and we will set everything up from there.
+      </p>
+
+      <form id="onboarding-form" method="POST" hidden>
+        <input type="hidden" name="_subject" value="New client onboarding — Deep Field">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <fieldset>
+          <legend>The business</legend>
+          <div class="pair">
+            <label class="fld"><span>Business name</span><input name="business" type="text" required></label>
+            <label class="fld"><span>Website</span><input name="website" type="text" placeholder="yoursite.com"></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Who can ask for changes</legend>
+          <p class="why">This is the important one. Anyone named here can ask us for a change and we will act on it. Anyone not named here, we will check with you first — which is slower, and deliberately so.</p>
+
+          <div class="pair">
+            <label class="fld"><span>Name</span><input name="person1_name" type="text" required></label>
+            <label class="fld"><span>Role</span><input name="person1_role" type="text" placeholder="Owner, manager, marketing"></label>
+          </div>
+          <div class="pair">
+            <label class="fld"><span>Email</span><input name="person1_email" type="email" required></label>
+            <label class="fld"><span>WhatsApp number</span><input name="person1_whatsapp" type="tel" placeholder="+1 767 …">
+              <span class="hint">With the country code. We only act on messages from numbers you list here.</span></label>
+          </div>
+          <label class="fld"><span>Can this person approve work that costs money?</span>
+            <select name="person1_approves" required>
+              <option value="">Choose one</option>
+              <option value="yes">Yes — they can approve costs</option>
+              <option value="no">No — ask me first about anything billable</option>
+            </select>
+          </label>
+
+          <button type="button" id="add-second" class="linkish">Add a second person</button>
+
+          <div id="second-person" hidden style="margin-top:22px;padding-top:22px;border-top:1px solid var(--border)">
+            <div class="pair">
+              <label class="fld"><span>Name</span><input name="person2_name" type="text"></label>
+              <label class="fld"><span>Role</span><input name="person2_role" type="text"></label>
+            </div>
+            <div class="pair">
+              <label class="fld"><span>Email</span><input name="person2_email" type="email"></label>
+              <label class="fld"><span>WhatsApp number</span><input name="person2_whatsapp" type="tel"></label>
+            </div>
+            <label class="fld"><span>Can this person approve work that costs money?</span>
+              <select name="person2_approves">
+                <option value="">Choose one</option>
+                <option value="yes">Yes — they can approve costs</option>
+                <option value="no">No — ask me first about anything billable</option>
+              </select>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Your red lines</legend>
+          <p class="why">We never change prices, legal or safety wording, or anything on a booking or payment page without asking — that is our rule regardless. Tell us anything else on your site that should get the same treatment.</p>
+          <label class="fld"><span>Never change without asking me</span>
+            <textarea name="red_lines" rows="3" placeholder="Our course prices, the cancellation policy, the instructor bios…"></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Practical things</legend>
+          <div class="pair">
+            <label class="fld"><span>Best way to reach you</span>
+              <select name="channel" required>
+                <option value="">Choose one</option>
+                <option value="email">Email</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="either">Either is fine</option>
+              </select>
+            </label>
+            <label class="fld"><span>Who should get invoices</span><input name="billing_email" type="email" placeholder="If different from above"></label>
+          </div>
+          <label class="fld"><span>Anything else we should know</span>
+            <textarea name="notes" rows="3" placeholder="Busy season, someone who must always be copied, a deadline coming up…"></textarea>
+          </label>
+        </fieldset>
+
+        <button class="btn btn-primary" type="submit">Send</button>
+        <p class="small muted" style="margin-top:16px">We use these details only to run your site. They are not shared and not used for marketing.</p>
+      </form>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p class="small muted">Deep Field · <a href="mailto:deepfieldstudios@gmail.com">deepfieldstudios@gmail.com</a></p>
+  </div>
+</footer>
+
+<script src="/assets/onboarding-config.js"></script>
+<script src="/assets/onboarding.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>
