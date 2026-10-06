@@ -128,3 +128,20 @@
   addEventListener('resize', onScroll, { passive: true });
   frame();
 })();
+
+/* Retire the landing entrance once its last tween has ended, so a later
+   reflow (or a breakpoint change) can never replay it. One self-removing
+   listener plus a safety net; no loop, no observers, no resize handlers. */
+(function () {
+  var root = document.documentElement;
+  var last = document.querySelector('.spectrum-note');
+  if (!last) { root.classList.add('is-entered'); return; }
+  var timer;
+  function done() {
+    clearTimeout(timer);
+    last.removeEventListener('animationend', done);
+    root.classList.add('is-entered');
+  }
+  last.addEventListener('animationend', done);
+  timer = setTimeout(done, 4000);
+})();
