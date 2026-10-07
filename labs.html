@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Labs — Deep Field</title>
+<meta name="description" content="Free, open-source guardrails for Claude Code: block leaked API keys, preview risky commands, write code for the versions you actually have. Plus fixed-price setup for teams and small businesses.">
+<link rel="canonical" href="https://deepfieldstudios.com/labs.html">
+<meta name="theme-color" content="#0C1019">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Deep Field">
+<meta property="og:url" content="https://deepfieldstudios.com/labs.html">
+<meta property="og:title" content="Deep Field Labs — guardrails for AI coding agents">
+<meta property="og:description" content="Free, open-source Claude Code plugins, and fixed-price setup for teams.">
+<meta property="og:image" content="https://deepfieldstudios.com/assets/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Deep Field — AI optimised web design">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://deepfieldstudios.com/assets/og-card.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .install{font-family:var(--font-mono);font-size:14px;line-height:1.7;background:#0C1019;color:#F6F4EF;
+    border-radius:10px;padding:18px 20px;overflow-x:auto;white-space:pre;margin:0}
+  .install .c{color:#9AA3AF}
+  .plugin h3{margin-bottom:10px}
+  .plugin p{margin-bottom:0}
+  .plugin .tag{font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);margin-bottom:14px;display:block}
+  .checks{margin:0;padding-left:18px}
+  .checks li{margin:6px 0}
+</style>
+</head>
+<body class="lightnav">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap inner">
+    <a class="wordmark" href="/" aria-label="Deep Field — home">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="120" height="120" rx="16" fill="#0C1019"/>
+        <rect x="30" y="26" width="60" height="60" rx="3" fill="none" stroke="#F6F4EF" stroke-width="2" opacity="0.22"/>
+        <g fill="#F6F4EF"><circle cx="46" cy="40" r="3"/><circle cx="78" cy="36" r="2.2" opacity=".6"/><circle cx="46" cy="74" r="2.2" opacity=".6"/></g>
+        <circle cx="70" cy="62" r="6" fill="#15BFAE"/>
+      </svg>
+      <span>Deep Field</span>
+    </a>
+    <nav class="site" aria-label="Primary">
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/redesign.html">Redesign</a>
+      <a href="/management.html">Management</a>
+      <a href="/contact.html" class="hide-sm">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="ink" style="padding:96px 0 84px">
+    <div class="wrap">
+      <p class="eyebrow" style="color:#9AA3AF">Deep Field Labs</p>
+      <h1 class="display" style="max-width:16ch">Guardrails for AI coding agents</h1>
+      <p class="lede" style="margin-top:22px;max-width:56ch;color:#9AA3AF">Free, open-source plugins for Claude Code that stop API keys leaking, warn before destructive commands, and keep code on the versions you actually run. We built them for our own work. Use them as they are, or have us set them up for your team.</p>
+      <div style="margin-top:34px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-primary" style="background:#F6F4EF;color:#0C1019" href="https://github.com/deepfieldstudios/deep-field-labs" rel="noopener">Get the plugins</a>
+        <a class="btn btn-secondary" style="color:#F6F4EF;border-color:#222A36" href="#setup">Have us set it up</a>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="n">01</span><span class="t">The plugins</span></div>
+      <p class="fill wide reveal" style="margin-bottom:56px">Agents open new ways for things to go wrong. These close the ones we kept running into.</p>
+      <div class="grid g3">
+        <div class="card plugin reveal">
+          <span class="tag">secret-shield</span>
+          <h3>Keys stay on your machine</h3>
+          <p>Blocks API keys and passwords in prompts, file writes, commits, web requests and tool calls before they leave. Logs anything exposed, with a link to rotate it. Stores fingerprints only, never the keys.</p>
+        </div>
+        <div class="card plugin reveal">
+          <span class="tag">blast-radius</span>
+          <h3>See what a command will do</h3>
+          <p>Scores every shell command for risk. Before a destructive one runs, you see it in plain English, such as "deletes 312 files, 2 not tracked by git", and a recovery point is saved first.</p>
+        </div>
+        <div class="card plugin reveal">
+          <span class="tag">docs-pin</span>
+          <h3>Code for the versions you have</h3>
+          <p>Reads your lockfile so the agent writes for the library versions you actually have installed, and flags deprecated APIs as they're written, not after the build breaks.</p>
+        </div>
+      </div>
+      <p class="small muted reveal" style="margin-top:28px">Seven more in the same repository: spend tracking, review digests, session notes, onboarding docs, prompt tests, proof behind "done", and safe document editing. MIT licensed, no tracking, no network calls.</p>
+      <div class="reveal" style="margin-top:36px;max-width:640px">
+        <pre class="install"><span class="c"># in Claude Code</span>
+/plugin marketplace add deepfieldstudios/deep-field-labs
+/plugin install secret-shield@deep-field-labs</pre>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0" id="setup">
+    <div class="wrap">
+      <div class="sec-head"><span class="n">02</span><span class="t">Set up for you</span></div>
+      <p class="fill wide reveal" style="margin-bottom:56px">Fixed price, agreed before we start. Scope moves, the rate doesn't.</p>
+      <div class="grid g2" style="align-items:start">
+        <div class="card reveal">
+          <span class="badge">For software teams</span>
+          <h3 style="margin-top:14px">Agent guardrails setup</h3>
+          <p>For teams starting to use Claude Code who want it safe from day one.</p>
+          <ul class="checks">
+            <li>Guardrail plugins installed and tuned to your stack</li>
+            <li>Team permission rules and project instructions written for your repos</li>
+            <li>Secret handling reviewed: what agents can see, and where keys should live</li>
+            <li>One hour with your team on working safely with agents</li>
+          </ul>
+          <a class="btn btn-primary btn-block" style="margin-top:26px" href="https://calendly.com/harry-mccahill/discovery-call" rel="noopener">Book a call</a>
+          <p class="small muted" style="margin-top:16px">Or <a class="link" href="mailto:deepfieldstudios@gmail.com?subject=Agent%20guardrails%20setup">email us</a>. The price is fixed on the first call, which is free.</p>
+        </div>
+        <div class="card reveal">
+          <span class="badge">For small businesses</span>
+          <h3 style="margin-top:14px">AI for your files, set up safely</h3>
+          <p>For businesses that live in spreadsheets and documents and want AI to help without risking the only copy.</p>
+          <ul class="checks">
+            <li>Claude set up so every document is saved before it's changed</li>
+            <li>Three workflows built for jobs you do every week, such as reconciling, list clean-up or contract changes</li>
+            <li>Changes explained in plain words, and anything can be undone</li>
+            <li>One hour of training for you and your team</li>
+          </ul>
+          <a class="btn btn-primary btn-block" style="margin-top:26px" href="https://calendly.com/harry-mccahill/discovery-call" rel="noopener">Book a call</a>
+          <p class="small muted" style="margin-top:16px">Or <a class="link" href="mailto:deepfieldstudios@gmail.com?subject=AI%20setup%20for%20my%20business">email us</a>. The price is fixed on the first call, which is free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0" id="teams">
+    <div class="wrap">
+      <div class="sec-head"><span class="n">03</span><span class="t">Coming next: Labs for teams</span></div>
+      <div class="grid g2" style="align-items:start">
+        <div class="reveal">
+          <p class="fill" style="margin-bottom:24px">The plugins protect one machine. Teams need to see across all of them.</p>
+          <ul class="checks">
+            <li><strong>One secrets register.</strong> Every key exposed to an agent, across the team, with who rotates it and when.</li>
+            <li><strong>One policy.</strong> Set the rules once and every developer's agent follows them.</li>
+            <li><strong>An audit trail.</strong> Evidence of what agents were allowed to do, ready for a security review.</li>
+          </ul>
+          <p class="small muted" style="margin-top:20px">Only fingerprints and metadata ever leave a machine. Never code, prompts or keys.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Join the founding list</h3>
+          <p style="margin-bottom:26px">We're building this with a small group of teams. Tell us how many developers you have and what you'd need it to do, and you'll get early access.</p>
+          <a class="btn btn-primary btn-block" href="mailto:deepfieldstudios@gmail.com?subject=Labs%20for%20teams%20%E2%80%94%20founding%20list&body=Team%20size%3A%0AWhat%20we%27d%20need%20it%20to%20do%3A%0A">Join by email</a>
+          <p class="small muted" style="margin-top:16px">Or <a class="link" href="https://calendly.com/harry-mccahill/discovery-call" rel="noopener">book a call</a> to talk it through.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ink">
+    <section>
+      <div class="wrap narrow" style="text-align:center">
+        <h2 style="color:#F6F4EF">Using agents on real work?</h2>
+        <p class="lede" style="margin:18px auto 0;color:#9AA3AF">Start with the free plugins. Call when you want it done properly across the team.</p>
+        <div style="margin-top:34px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a class="btn btn-primary" style="background:#F6F4EF;color:#0C1019" href="https://github.com/deepfieldstudios/deep-field-labs" rel="noopener">Get the plugins</a>
+          <a class="btn btn-secondary" style="color:#F6F4EF;border-color:#222A36" href="https://calendly.com/harry-mccahill/discovery-call" rel="noopener">Book a call</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="wordmark" href="/" style="margin-bottom:12px">
+          <span>Deep Field</span>
+        </a>
+        <p class="small muted" style="max-width:32ch">We find the signal in the noise.</p>
+      </div>
+      <nav class="fnav" aria-label="Footer">
+        <a href="/portfolio.html">Portfolio</a>
+        <a href="/redesign.html">Redesign</a>
+        <a href="/management.html">Management</a>
+        <a href="/labs.html">Labs</a>
+        <a href="/services.html">Fees</a>
+        <a href="/pay.html">Billing</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+    <p class="legal">© 2026 Deep Field. Oxfordshire, United Kingdom.</p>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
