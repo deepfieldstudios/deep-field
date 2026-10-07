@@ -8,8 +8,9 @@
     if (url) {
       el.setAttribute('href', url);
     } else {
-      el.setAttribute('href', '/contact.html');
-      el.textContent = 'Contact us to set this up';
+      // A page can name its own fallback, e.g. Labs falls back to booking a call.
+      el.setAttribute('href', el.getAttribute('data-fallback-href') || '/contact.html');
+      el.textContent = el.getAttribute('data-fallback-text') || 'Contact us to set this up';
     }
   });
   // The setup notice is only for the un-configured state.

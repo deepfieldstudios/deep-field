@@ -103,35 +103,47 @@
   <section style="padding-top:0" id="setup">
     <div class="wrap">
       <div class="sec-head"><span class="n">02</span><span class="t">Set up for you</span></div>
-      <p class="fill wide reveal" style="margin-bottom:56px">Fixed price, agreed before we start. Scope moves, the rate doesn't.</p>
-      <div class="grid g2" style="align-items:start">
-        <div class="card reveal">
-          <span class="badge">For software teams</span>
-          <h3 style="margin-top:14px">Agent guardrails setup</h3>
-          <p>For teams starting to use Claude Code who want it safe from day one.</p>
-          <ul class="checks">
-            <li>Guardrail plugins installed and tuned to your stack</li>
-            <li>Team permission rules and project instructions written for your repos</li>
-            <li>Secret handling reviewed: what agents can see, and where keys should live</li>
-            <li>One hour with your team on working safely with agents</li>
-          </ul>
-          <a class="btn btn-primary btn-block" style="margin-top:26px" href="https://calendly.com/harry-mccahill/discovery-call" rel="noopener">Book a call</a>
-          <p class="small muted" style="margin-top:16px">Or <a class="link" href="mailto:deepfieldstudios@gmail.com?subject=Agent%20guardrails%20setup">email us</a>. The price is fixed on the first call, which is free.</p>
-        </div>
-        <div class="card reveal">
-          <span class="badge">For small businesses</span>
-          <h3 style="margin-top:14px">AI for your files, set up safely</h3>
-          <p>For businesses that live in spreadsheets and documents and want AI to help without risking the only copy.</p>
-          <ul class="checks">
+      <p class="fill wide reveal" style="margin-bottom:56px">Fixed prices, paid once. Buy now and we start from a short questionnaire, or talk to us first.</p>
+      <div class="grid g3">
+        <div class="card tier reveal">
+          <span class="badge">Small businesses</span>
+          <h3 style="margin-top:14px">AI for your files</h3>
+          <div class="price">$1,200</div><div class="per">one-off, up to 5 people</div>
+          <ul>
             <li>Claude set up so every document is saved before it's changed</li>
-            <li>Three workflows built for jobs you do every week, such as reconciling, list clean-up or contract changes</li>
+            <li>Three workflows for jobs you do every week, such as reconciling, list clean-up or contract changes</li>
             <li>Changes explained in plain words, and anything can be undone</li>
-            <li>One hour of training for you and your team</li>
+            <li>One hour of training, then 30 days of email support</li>
           </ul>
-          <a class="btn btn-primary btn-block" style="margin-top:26px" href="https://calendly.com/harry-mccahill/discovery-call" rel="noopener">Book a call</a>
-          <p class="small muted" style="margin-top:16px">Or <a class="link" href="mailto:deepfieldstudios@gmail.com?subject=AI%20setup%20for%20my%20business">email us</a>. The price is fixed on the first call, which is free.</p>
+          <a class="btn btn-secondary btn-block" data-pay="labs_files" data-fallback-href="https://calendly.com/harry-mccahill/discovery-call" data-fallback-text="Book a call" href="https://calendly.com/harry-mccahill/discovery-call" rel="noopener">Buy now</a>
+          <p class="small muted" style="margin-top:16px">Prefer to talk first? <a class="link" href="https://calendly.com/harry-mccahill/discovery-call" rel="noopener">Book a free call</a>. Extra workflows are $250 each.</p>
+        </div>
+        <div class="card tier featured reveal">
+          <span class="badge">Software teams</span>
+          <h3 style="margin-top:14px">Agent guardrails: Starter</h3>
+          <div class="price">$2,500</div><div class="per">one-off, up to 10 developers, 1 repo</div>
+          <ul>
+            <li>Guardrail plugins installed and tuned to your stack</li>
+            <li>Team permission rules and project instructions written for your repo</li>
+            <li>A one-hour session with your team on working safely with agents</li>
+          </ul>
+          <a class="btn btn-primary btn-block" data-pay="labs_starter" data-fallback-href="https://calendly.com/harry-mccahill/discovery-call" data-fallback-text="Book a call" href="https://calendly.com/harry-mccahill/discovery-call" rel="noopener">Buy now</a>
+          <p class="small muted" style="margin-top:16px">Prefer to talk first? <a class="link" href="https://calendly.com/harry-mccahill/discovery-call" rel="noopener">Book a free call</a>.</p>
+        </div>
+        <div class="card tier reveal">
+          <span class="badge">Larger teams</span>
+          <h3 style="margin-top:14px">Agent guardrails: Team</h3>
+          <div class="price">$4,500</div><div class="per">one-off, up to 25 developers, 3 repos</div>
+          <ul>
+            <li>Everything in Starter, across three repos</li>
+            <li>Secret handling reviewed: what agents can see, and where keys should live</li>
+            <li>Two team sessions and 30 days of support</li>
+          </ul>
+          <a class="btn btn-secondary btn-block" href="https://calendly.com/harry-mccahill/discovery-call" rel="noopener">Book a call</a>
+          <p class="small muted" style="margin-top:16px">We agree the scope on a free call first. Or <a class="link" href="mailto:deepfieldstudios@gmail.com?subject=Agent%20guardrails%3A%20Team">email us</a>.</p>
         </div>
       </div>
+      <p class="small muted reveal" style="margin-top:24px">All prices USD, paid in full up front. No VAT is charged. If our questionnaire shows the package isn't right for you, we refund in full before any work starts. <a class="link" href="/labs-terms.html">Package terms</a>.</p>
     </div>
   </section>
 
@@ -196,6 +208,8 @@
   </div>
 </footer>
 
+<script src="/assets/payment-links.js"></script>
+<script src="/assets/pay.js" defer></script>
 <script src="/assets/site.js" defer></script>
 </body>
 </html>

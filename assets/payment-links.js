@@ -23,6 +23,12 @@ window.DF_PAYMENTS = {
   // Same link as config.json → payment.stripe_fallback_link. Keep them equal.
   invoice_any_amount: "https://buy.stripe.com/9B600k0vWcPL9XvgtSg7e03",
 
+  // --- Labs setup packages: ONE-OFF payment links, USD ------------------
+  // Created by 00_Admin/Stripe/provision-labs.py. Each redirects to /labs-start.html.
+  // While null, the Labs page shows "Book a call" in place of "Buy now".
+  labs_files:   null,   // $1,200 — AI for your files (small business)
+  labs_starter: null,   // $2,500 — Agent guardrails: Starter
+
   // --- Stripe-hosted customer portal ------------------------------------
   // Stripe: Settings → Billing → Customer portal → save, then copy the login link.
   // Lets clients change card details and cancel without emailing you.
