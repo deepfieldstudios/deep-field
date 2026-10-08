@@ -884,3 +884,29 @@ strong{font-weight:600}
 }
 .method li strong{color:var(--text-primary);font-weight:500}
 @media(prefers-reduced-motion:reduce){.method summary::before{transition:none}}
+
+/* Client quotes. Verbatim, lightly cut, attributed by name and company. Set
+   as a pull — no card, no avatar, no stars — so it reads as something someone
+   said rather than a widget. The teal rule is the same mark the signature
+   and the landing rail use. */
+.quotes{align-items:start}
+.quote{
+  margin:0;padding:26px 0 0;border-top:2px solid var(--accent);
+}
+.quote p{
+  margin:0;font-family:var(--font-display);font-weight:300;
+  font-size:clamp(18px,1.9vw,21px);line-height:1.45;letter-spacing:-0.015em;
+  color:var(--text-primary);
+}
+.quote p::before{content:"\201C";}
+.quote p::after{content:"\201D";}
+.quote footer{
+  margin-top:18px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;
+  font-size:13.5px;color:var(--text-secondary);
+}
+.quote .q-name{color:var(--text-primary);font-weight:500}
+.quote footer .link{font-size:13.5px}
+.case-quote{margin-top:32px;max-width:70ch}
+.case-quote p{font-size:clamp(16.5px,1.6vw,18.5px)}
+@media(max-width:720px){.grid.quotes{grid-template-columns:1fr;gap:32px}}
+
