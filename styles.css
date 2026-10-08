@@ -2,6 +2,27 @@
    Tokens are lifted verbatim from 01_Brand/Brand-Kit/deep-field-design-system.md.
    If anything here conflicts with that file, that file wins. */
 
+/* ==========================================================================
+   Inter, self-hosted. One variable file, same origin, no third party.
+
+   Was: two preconnects + a stylesheet request to fonts.googleapis.com, then a
+   47.3 KB variable woff2 from fonts.gstatic.com — the webfont alone was about
+   three quarters of this page, on a site that publishes its own weight.
+
+   Now 31.6 KB: the optical-size axis is dropped (it was most of the cost and
+   nothing here sets font-optical-sizing), the weight axis is cut to the
+   200-700 the design actually uses, and the character set is Latin-1 plus the
+   punctuation the copy really contains. Rebuild with the recipe in the
+   Portfolio-Site README before adding a language that needs more glyphs.
+   ========================================================================== */
+@font-face{
+  font-family:"Inter";
+  src:url("/assets/inter-var.woff2") format("woff2-variations");
+  font-weight:200 700;
+  font-style:normal;
+  font-display:swap;
+}
+
 :root{
   --bg:#F6F4EF; --surface:#FFFFFF; --text-primary:#0C1019; --text-secondary:#6B7280;
   --border:#E2DED5; --accent:#15BFAE; --accent-alt:#C7A14A;
@@ -828,3 +849,8 @@ html{scroll-padding-top:calc(var(--bar) + 12px)}
   .landing .feats{margin-bottom:clamp(80px,12vh,124px);padding-top:16px}
   .landing .field{width:min(38vw,380px)}
 }
+
+/* Emphasis. The browser default for <strong> is 700, which is heavy against a
+   300 body on a design built around thin weights. 600 is the house emphasis —
+   .notice strong already used it, this just makes it the rule. */
+strong{font-weight:600}

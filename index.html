@@ -19,9 +19,7 @@
 <meta property="og:image:alt" content="Deep Field — AI optimised web design">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://deepfieldstudios.com/assets/og-card.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -119,11 +117,12 @@
       <!-- Self-proving: re-measure whenever the page changes, and count EVERYTHING a
            first-time visitor downloads, webfont included. The figure has to survive a
            stranger clicking "Check it yourself", or it costs more trust than it buys.
-           Measured 5 Oct 2026: html 5.4 + css 8.9 + js 2.3 + Inter latin 48.0 = 65 KB.
-           The whole landing entrance costs 1.2 KB of that. -->
+           Measured 7 Oct 2026: html 5.4 + css 9.8 + js 2.3 + Inter 31.6 = 49 KB,
+           on one origin with no third-party request at all. The landing entrance
+           costs 1.2 KB of that; the self-hosted subset saved 16 KB. -->
       <p class="proof reveal">
         <span class="proof-k">This page, everything included</span>
-        <span class="proof-v">65&nbsp;KB</span>
+        <span class="proof-v">49&nbsp;KB</span>
         <span class="proof-k">of which JavaScript</span>
         <span class="proof-v">2.3&nbsp;KB</span>
         <a class="link" href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fdeepfieldstudios.com%2F" rel="noopener">Check it yourself ↗</a>
