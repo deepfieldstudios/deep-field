@@ -854,3 +854,33 @@ html{scroll-padding-top:calc(var(--bar) + 12px)}
    300 body on a design built around thin weights. 600 is the house emphasis —
    .notice strong already used it, this just makes it the rule. */
 strong{font-weight:600}
+
+/* Disclosure for the method behind a case. Outcomes prove something happened;
+   the method is what makes it look repeatable rather than lucky. Closed by
+   default so the page still reads as a portfolio, not a write-up. */
+.method{margin-top:28px;border-top:1px solid var(--border);padding-top:18px}
+.method summary{
+  cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--text-secondary);
+}
+.method summary::-webkit-details-marker{display:none}
+.method summary::before{
+  content:"";width:7px;height:7px;flex:none;
+  border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+  transform:rotate(-45deg);transition:transform var(--motion-duration) var(--motion-ease);
+}
+.method[open] summary::before{transform:rotate(45deg)}
+.method summary:hover{color:var(--text-primary)}
+.method summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:3px}
+.method ol{margin:22px 0 4px;padding-left:0;list-style:none;counter-reset:m;max-width:76ch}
+.method li{
+  position:relative;counter-increment:m;padding-left:38px;margin-bottom:16px;
+  font-size:14.5px;line-height:1.6;color:var(--text-secondary);
+}
+.method li::before{
+  content:counter(m,decimal-leading-zero);position:absolute;left:0;top:1px;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--accent);
+}
+.method li strong{color:var(--text-primary);font-weight:500}
+@media(prefers-reduced-motion:reduce){.method summary::before{transition:none}}
