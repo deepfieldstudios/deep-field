@@ -120,12 +120,14 @@
       <!-- Self-proving: re-measure whenever the page changes, and count EVERYTHING a
            first-time visitor downloads, webfont included. The figure has to survive a
            stranger clicking "Check it yourself", or it costs more trust than it buys.
-           Measured 7 Oct 2026: html 5.4 + css 9.8 + js 2.3 + Inter 31.6 = 49 KB,
-           on one origin with no third-party request at all. The landing entrance
-           costs 1.2 KB of that; the self-hosted subset saved 16 KB. -->
+           MEASURE AGAINST THE LIVE SERVER, not local gzip -9: Pages compresses
+           less hard, so a local figure reads ~1 KB light and the claim stops
+           surviving a check. Measured on deepfieldstudios.com 7 Oct 2026:
+           html 5.5 + css 10.3 + js 2.3 + Inter 31.6 = 49.6, published as 50 KB.
+           One origin, no third-party request. -->
       <p class="proof reveal">
         <span class="proof-k">This page, everything included</span>
-        <span class="proof-v">49&nbsp;KB</span>
+        <span class="proof-v">50&nbsp;KB</span>
         <span class="proof-k">of which JavaScript</span>
         <span class="proof-v">2.3&nbsp;KB</span>
         <a class="link" href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fdeepfieldstudios.com%2F" rel="noopener">Check it yourself ↗</a>
