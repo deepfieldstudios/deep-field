@@ -27,7 +27,7 @@ window.DF_PAYMENTS = {
   // Created by 00_Admin/Stripe/provision-labs.py. Each redirects to /labs-start.html.
   // While null, the Labs page shows "Book a call" in place of "Buy now".
   labs_files:   "https://buy.stripe.com/fZu8wQ6UkcPL3z7dhGg7e04", // $1,200 — AI for your files (small business)
-  labs_starter: null,   // $2,500 — Agent guardrails: Starter
+  labs_starter: "https://buy.stripe.com/5kQ28sguU1734Dbb9yg7e05", // $2,500 — Agent guardrails: Starter
 
   // --- Stripe-hosted customer portal ------------------------------------
   // Stripe: Settings → Billing → Customer portal → save, then copy the login link.
