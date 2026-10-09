@@ -26,7 +26,7 @@ window.DF_PAYMENTS = {
   // --- Labs setup packages: ONE-OFF payment links, USD ------------------
   // Created by 00_Admin/Stripe/provision-labs.py. Each redirects to /labs-start.html.
   // While null, the Labs page shows "Book a call" in place of "Buy now".
-  labs_files:   null,   // $1,200 — AI for your files (small business)
+  labs_files:   "https://buy.stripe.com/fZu8wQ6UkcPL3z7dhGg7e04", // $1,200 — AI for your files (small business)
   labs_starter: null,   // $2,500 — Agent guardrails: Starter
 
   // --- Stripe-hosted customer portal ------------------------------------
